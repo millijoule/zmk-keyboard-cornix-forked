@@ -122,7 +122,7 @@
 
             label = "Sym/Num";
             sensor-bindings =
-                <&inc_dec_kp HOME END>,
+                <&inc_dec_kp END HOME>,
                 <&inc_dec_kp PERIOD COMMA>;
         };
 
