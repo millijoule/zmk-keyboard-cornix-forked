@@ -49,8 +49,8 @@
         prechargep = <0x22>;
 
         // comment to rotate 180
-        segment-remap;
-        com-invdir;
+        // segment-remap;
+        // com-invdir;
 	};
 };
 
