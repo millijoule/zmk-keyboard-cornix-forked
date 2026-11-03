@@ -81,6 +81,29 @@
             tapping-term-ms = <150>;
             bindings = <&ht RSHIFT SLASH>, <&ht QMARK QMARK>;
         };
+
+        esc_td: esc_td {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ESC_TD";
+            #binding-cells = <0>;
+            bindings = <&ht TAB ESCAPE>, <&ht TAB ESC>;
+
+            tapping-term-ms = <500>;
+        };
+
+        Lalt_td: Lalt_td {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LALT_TD";
+            #binding-cells = <0>;
+            bindings = <&ht LALT Y>, <&lt 1 LALT>;
+        };
+
+        Lgui_td: Lgui_td {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LGUI_TD";
+            #binding-cells = <0>;
+            bindings = <&ht LGUI LGUI>, <&lt 2 LGUI>;
+        };
     };
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
@@ -101,14 +124,14 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp TAB     &kp Q     &kp W  &kp E  &kp R      &kp T                                    &kp Y    &kp U      &kp I       &kp O     &kp P               &kp BACKSPACE
-&kp LSHIFT  &kp A     &kp S  &kp D  &kp F      &kp G                                    &kp H    &kp J      &kp K       &kp L     &ht APOS SEMICOLON  &kp ENTER
-&kp LCTRL   &kp Z     &kp X  &kp C  &kp V      &kp B     &lt (1) LG(LC(V))  &kp C_MUTE  &kp N    &kp M      &kp COMMA   &kp DOT   &kp UP              &Rsft_td
-&none       &kp LGUI  &mo 2  &mo 1  &kp SPACE  &kp LALT                                 &lt 1 B  &kp SPACE  &lt 2 RALT  &kp LEFT  &kp DOWN            &kp RIGHT
+&esc_td     &kp Q  &kp W  &kp E     &kp R      &kp T                                    &kp Y    &kp U      &kp I       &kp O     &kp P               &kp BACKSPACE
+&kp LSHIFT  &kp A  &kp S  &kp D     &kp F      &kp G                                    &kp H    &kp J      &kp K       &kp L     &ht APOS SEMICOLON  &kp ENTER
+&kp LCTRL   &kp Z  &kp X  &kp C     &kp V      &kp B     &lt (1) LG(LC(V))  &kp C_MUTE  &kp N    &kp M      &kp COMMA   &kp DOT   &kp UP              &Rsft_td
+&none       &none  &none  &Lgui_td  &kp SPACE  &Lalt_td                                 &lt 1 B  &kp SPACE  &lt 2 RALT  &kp LEFT  &kp DOWN            &kp RIGHT
             >;
 
             sensor-bindings =
-                <&inc_dec_kp (LC(LS(Z))) LC(Z)>,
+                <&inc_dec_kp (LC(TAB)) LC(LS(TAB))>,
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
