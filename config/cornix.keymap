@@ -85,9 +85,9 @@
             compatible = "zmk,behavior-tap-dance";
             label = "ESC_TD";
             #binding-cells = <0>;
-            bindings = <&ht TAB ESCAPE>, <&ht TAB ESC>;
+            bindings = <&ht TAB TAB>, <&ht TAB ESC>;
 
-            tapping-term-ms = <125>;
+            tapping-term-ms = <100>;
         };
 
         Lalt_td: Lalt_td {
@@ -96,7 +96,7 @@
             #binding-cells = <0>;
             bindings = <&ht LALT Y>, <&lt 1 LALT>;
 
-            tapping-term-ms = <125>;
+            tapping-term-ms = <100>;
         };
 
         Lgui_td: Lgui_td {
